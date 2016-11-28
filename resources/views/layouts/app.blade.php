@@ -220,7 +220,9 @@
           url:url,
           datatype:'json',
           data:{
-            username:user,email:email,pesan:pesan
+            username:user,
+            email:email,
+            pesan:pesan
           },
                 beforeSend:function(xhr){
                   var token = $('meta[name="csrf-token"]').attr('content');
@@ -231,17 +233,13 @@
                 },
           success:function(data){
             if(data.success =='true'){
+              $('#form')[0].reset();
               swal({
                 title: 'Success !!!',
                 text: 'Pesan terkirim.',
                 showConfirmButton:false,
                 type:'success',
                 timer: 2000
-              });
-                 $.each('#form', function(){
-                  $('#name').val('');
-                  $('#email').val('');
-                  $('#message').val('');
               });
             }
             if(data.success =='false'){

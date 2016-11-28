@@ -43,20 +43,20 @@ class AdminController extends Controller
             $hours_expired = date('H',strtotime($now));
             $minutes_expired = date('i',strtotime($now));
             if ($minutes_expired == 60) {
-                $minutes_expired = $minutes_expired - 5;
+                $minutes_expireds = $minutes_expired - 5;
             } else if ($minutes_expired == 59) {
-                $minutes_expired = $minutes_expired - 4;
+                $minutes_expireds = $minutes_expired - 4;
             } else if ($minutes_expired == 58) {
-                $minutes_expired = $minutes_expired - 3;
+                $minutes_expireds = $minutes_expired - 3;
             } else if ($minutes_expired == 57) {
-                $minutes_expired = $minutes_expired - 2;
+                $minutes_expireds = $minutes_expired - 2;
             } else if ($minutes_expired == 56) {
-                $minutes_expired = $minutes_expired - 1;
+                $minutes_expireds = $minutes_expired - 1;
             } else {
-                $minutes_expired = $minutes_expired;
+                $minutes_expireds = $minutes_expired + 5;
             }
             $seconds_expired = date('s',strtotime($now));
-            $time_expired = $date_expired.' '.$hours_expired.':'.$minutes_expired.':'.$seconds_expired;
+            $time_expired = $date_expired.' '.$hours_expired.':'.$minutes_expireds.':'.$seconds_expired;
             $expired = auth()->user()->id;
 
             $online = ['expired' => $time_expired];

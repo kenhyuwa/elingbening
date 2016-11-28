@@ -21,7 +21,7 @@
         <div class="login-bottom">
             <center><h2>Eling Bening</h2></center>
             @if( Session::has( 'success' ) )
-                <div id="callout" class="callout callout-info alert alert-info" style="cursor: pointer;padding-top: 1px;padding-bottom: 1px;">
+                <div id="callout" class="callout callout-info alert alert-info" style="cursor: pointer;padding: 20px 5px 20px 5px;padding-bottom: 1px;">
                     <center><h5>{{ Session::get('success') }}</h5></center>
                 </div>
               @endif
